@@ -17,5 +17,9 @@ There are many ways you can earn points on a level:
 
 * **Defeat all enemies and rescue all captives** to receive a 20% overall bonus.
 
+But you must be careful, because you can also lose points:
+
+* **Kill a captive** and you'll receive a penalty.
+
 A total score is kept as you progress through the levels. When you pass a level,
 that score is added to your total.

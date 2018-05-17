@@ -1,5 +1,5 @@
 ---
-id: unit-api
+id: unit-player-api
 title: Unit API
 ---
 
@@ -7,7 +7,7 @@ You can call methods on a unit to gather information about it.
 
 Here are the various methods that are available to you:
 
-## `unit.isHostile()`:
+## `unit.isHostile()`
 
 Determines if the unit is hostile. A bound unit is not considered hostile.
 
@@ -15,7 +15,7 @@ Determines if the unit is hostile. A bound unit is not considered hostile.
 
 _(boolean)_: Whether this is a hostile unit or not.
 
-## `unit.isFriendly()`:
+## `unit.isFriendly()`
 
 Determines if the unit is friendly.
 
@@ -23,7 +23,7 @@ Determines if the unit is friendly.
 
 _(boolean)_: Whether this is a friendly unit or not.
 
-## `unit.isWarrior()`:
+## `unit.isWarrior()`
 
 Determines if the unit is the warrior.
 
@@ -35,7 +35,7 @@ _`unit.isPlayer()`_
 
 _(boolean)_: Whether this unit is the warrior or not.
 
-## `unit.isBound()`:
+## `unit.isBound()`
 
 Determines if the unit is bound.
 
@@ -43,7 +43,7 @@ Determines if the unit is bound.
 
 _(boolean)_: Whether this unit is bound or not.
 
-## `unit.isUnderEffect(effect)`:
+## `unit.isUnderEffect(effect)`
 
 Determines if the unit is under the given effect.
 

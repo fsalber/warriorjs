@@ -1,5 +1,5 @@
 ---
-id: space-api
+id: space-player-api
 title: Space API
 ---
 
@@ -7,7 +7,7 @@ You can call methods on a space to gather information about what's there.
 
 Here are the various methods that are available to you:
 
-## `space.isEmpty()`:
+## `space.isEmpty()`
 
 Determines if nothing (except maybe stairs) is at this location.
 
@@ -15,7 +15,7 @@ Determines if nothing (except maybe stairs) is at this location.
 
 _(boolean)_: Whether this space is empty or not.
 
-## `space.isStairs()`:
+## `space.isStairs()`
 
 Determines if the stairs are at this location.
 
@@ -23,7 +23,7 @@ Determines if the stairs are at this location.
 
 _(boolean)_: Whether the stairs are at this space or not.
 
-## `space.isWall()`:
+## `space.isWall()`
 
 Determines if this is the edge of the level.
 
@@ -31,7 +31,7 @@ Determines if this is the edge of the level.
 
 _(boolean)_: Whether this space is a wall or not.
 
-## `space.isUnit()`:
+## `space.isUnit()`
 
 Determines if there's a unit at this location.
 
@@ -39,7 +39,7 @@ Determines if there's a unit at this location.
 
 _(boolean)_: Whether a unit is at this space or not.
 
-## `space.getUnit()`:
+## `space.getUnit()`
 
 Returns the unit located at this space (if any).
 
@@ -47,7 +47,7 @@ Returns the unit located at this space (if any).
 
 _(Unit)_: The unit at this location.
 
-## `space.getLocation()`:
+## `space.getLocation()`
 
 Returns the location of this space.
 
