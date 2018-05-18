@@ -394,12 +394,12 @@ class Unit {
    */
   toPlayerObject() {
     return {
-      isHostile: this.isHostile.bind(this),
-      isFriendly: this.isFriendly.bind(this),
-      isPlayer: this.isPlayer.bind(this),
-      isWarrior: this.isWarrior.bind(this),
       isBound: this.isBound.bind(this),
+      isFriendly: this.isFriendly.bind(this),
+      isHostile: this.isHostile.bind(this),
+      isPlayer: this.isPlayer.bind(this),
       isUnderEffect: this.isUnderEffect.bind(this),
+      isWarrior: this.isWarrior.bind(this),
     };
   }
 

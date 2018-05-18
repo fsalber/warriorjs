@@ -460,12 +460,12 @@ describe('Unit', () => {
 
     test('allows calling Player API methods', () => {
       const playerApi = [
-        'isHostile',
-        'isFriendly',
-        'isPlayer',
-        'isWarrior',
         'isBound',
+        'isFriendly',
+        'isHostile',
+        'isPlayer',
         'isUnderEffect',
+        'isWarrior',
       ];
       playerApi.forEach(propertyName => {
         playerObject[propertyName]();
@@ -489,7 +489,6 @@ describe('Unit', () => {
         'earnPoints',
         'losePoints',
         'getOtherUnits',
-        'getSpace',
         'getSpaceAt',
         'getDirectionOfStairs',
         'getDirectionOf',
