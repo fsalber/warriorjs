@@ -23,7 +23,7 @@ describe('feel', () => {
 
   describe('performing', () => {
     beforeEach(() => {
-      unit.getSpaceAt.mockReturnValue({ toPlayerObject: () => 'space' });
+      unit.getSpaceAt.mockReturnValue({ toSensedSpace: () => 'space' });
     });
 
     test('feels forward by default', () => {

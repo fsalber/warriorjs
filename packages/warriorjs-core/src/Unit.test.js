@@ -1,4 +1,11 @@
-import { BACKWARD, FORWARD, LEFT, NORTH, RIGHT } from '@warriorjs/geography';
+import {
+  BACKWARD,
+  FORWARD,
+  LEFT,
+  NORTH,
+  RIGHT,
+  SOUTH,
+} from '@warriorjs/geography';
 
 import Floor from './Floor';
 import Unit from './Unit';
@@ -451,15 +458,19 @@ describe('Unit', () => {
     });
   });
 
-  describe('player object', () => {
-    let playerObject;
+  describe('sensed unit', () => {
+    let sensingUnit;
+    let sensedUnit;
 
     beforeEach(() => {
-      playerObject = unit.toPlayerObject();
+      sensingUnit = new Unit();
+      floor.addUnit(sensingUnit, { x: 0, y: 1, facing: SOUTH });
+      sensedUnit = unit.toSensedUnit(sensingUnit);
     });
 
-    test('allows calling Player API methods', () => {
-      const playerApi = [
+    test('allows calling sensed unit methods', () => {
+      const allowedApi = [
+        'getSpace',
         'isBound',
         'isFriendly',
         'isHostile',
@@ -467,40 +478,40 @@ describe('Unit', () => {
         'isUnderEffect',
         'isWarrior',
       ];
-      playerApi.forEach(propertyName => {
-        playerObject[propertyName]();
+      allowedApi.forEach(propertyName => {
+        sensedUnit[propertyName]();
       });
     });
 
-    test("doesn't allow calling methods that don't belong to the Player API", () => {
+    test("doesn't allow calling other unit methods", () => {
       const forbiddenApi = [
         'addAbility',
         'addEffect',
-        'triggerEffect',
-        'getNextTurn',
-        'prepareTurn',
-        'performTurn',
-        'heal',
-        'takeDamage',
-        'damage',
-        'isAlive',
-        'unbind',
         'bind',
+        'damage',
         'earnPoints',
-        'losePoints',
+        'getDirectionOf',
+        'getDirectionOfStairs',
+        'getDistanceOf',
+        'getNextTurn',
         'getOtherUnits',
         'getSpaceAt',
-        'getDirectionOfStairs',
-        'getDirectionOf',
-        'getDistanceOf',
+        'heal',
+        'isAlive',
+        'losePoints',
         'move',
+        'performTurn',
+        'prepareTurn',
         'rotate',
-        'vanish',
         'say',
-        'toPlayerObject',
+        'takeDamage',
+        'toSensedUnit',
+        'triggerEffect',
+        'unbind',
+        'vanish',
       ];
       forbiddenApi.forEach(propertyName => {
-        expect(playerObject).not.toHaveProperty(propertyName);
+        expect(sensedUnit).not.toHaveProperty(propertyName);
       });
     });
   });

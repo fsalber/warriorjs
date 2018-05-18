@@ -385,15 +385,15 @@ class Unit {
   }
 
   /**
-   * Returns the player object for this unit.
+   * Returns this unit as sensed by the given unit.
    *
-   * The player object has the subset of the unit methods that belong to the
-   * Player API.
+   * @param {Unit} unit The unit sensing this unit.
    *
-   * @returns {object} The player object.
+   * @returns {SensedUnit} The sensed unit.
    */
-  toPlayerObject() {
+  toSensedUnit(unit) {
     return {
+      getSpace: () => this.getSpace.call(this).toSensedSpace(unit),
       isBound: this.isBound.bind(this),
       isFriendly: this.isFriendly.bind(this),
       isHostile: this.isHostile.bind(this),

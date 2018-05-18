@@ -5,7 +5,7 @@ function listen() {
     perform() {
       return unit
         .getOtherUnits()
-        .map(anotherUnit => anotherUnit.getSpace().toPlayerObject());
+        .map(anotherUnit => anotherUnit.getSpace().toSensedSpace(unit));
     },
   });
 }

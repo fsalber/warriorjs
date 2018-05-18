@@ -8,7 +8,7 @@ function look({ range }) {
     perform(direction = defaultDirection) {
       const offsets = Array.from(new Array(range), (_, index) => index + 1);
       return offsets.map(offset =>
-        unit.getSpaceAt(direction, offset).toPlayerObject(),
+        unit.getSpaceAt(direction, offset).toSensedSpace(unit),
       );
     },
   });

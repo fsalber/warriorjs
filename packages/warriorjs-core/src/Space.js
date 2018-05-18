@@ -1,3 +1,5 @@
+import { getRelativeOffset } from '@warriorjs/geography';
+
 const upperLeftWallCharacter = '╔';
 const upperRightWallCharacter = '╗';
 const lowerLeftWallCharacter = '╚';
@@ -117,19 +119,23 @@ class Space {
   }
 
   /**
-   * Returns the player object for this space.
+   * Returns this space as sensed by the given unit.
    *
-   * The player object has the subset of the Space methods that belong to the
-   * Player API.
+   * @param {Unit} unit The unit sensing this space.
    *
-   * @returns {object} The player object.
+   * @returns {SensedSpace} The sensed space.
    */
-  toPlayerObject() {
+  toSensedSpace(unit) {
     return {
-      getLocation: this.getLocation.bind(this),
+      getLocation: () =>
+        getRelativeOffset(
+          this.location,
+          unit.position.location,
+          unit.position.orientation,
+        ),
       getUnit: () => {
-        const unit = this.getUnit.call(this);
-        return unit && unit.toPlayerObject();
+        const spaceUnit = this.getUnit.call(this);
+        return spaceUnit && spaceUnit.toSensedUnit(unit);
       },
       isEmpty: this.isEmpty.bind(this),
       isStairs: this.isStairs.bind(this),
