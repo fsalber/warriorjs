@@ -1,6 +1,7 @@
 import { NORTH } from '@warriorjs/geography';
 
 import Floor from './Floor';
+import Space from './Space';
 import Unit from './Unit';
 
 describe('Space', () => {
@@ -277,6 +278,13 @@ describe('Space', () => {
 
     test('has a location relative to the sensing unit', () => {
       expect(sensedSpace.getLocation()).toEqual([1, -1]);
+    });
+
+    test('can get full space back', () => {
+      const fullSpace = Space.fromSensedSpace(sensedSpace, sensingUnit);
+      expect(fullSpace).toBeInstanceOf(Space);
+      expect(fullSpace.floor).toBe(space.floor);
+      expect(fullSpace.location).toEqual(space.location);
     });
   });
 });

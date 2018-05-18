@@ -1,4 +1,5 @@
 import Logger from './Logger';
+import Space from './Space';
 
 /** Class representing a unit. */
 class Unit {
@@ -320,28 +321,34 @@ class Unit {
    * @returns {string} The relative direction of the stairs.
    */
   getDirectionOfStairs() {
-    return this.getDirectionOf(this.position.floor.getStairsSpace());
+    return this.position.getRelativeDirectionOf(
+      this.position.floor.getStairsSpace(),
+    );
   }
 
   /**
-   * Returns the direction of the given space with reference to this unit.
+   * Returns the direction of the given sensed space, with reference to this
+   * unit.
    *
-   * @param {Space} space The space to get the direction of.
+   * @param {SensedSpace} sensedSpace The sensed space to get the direction of.
    *
-   * @returns {string} The relative direction of the space.
+   * @returns {string} The relative direction of the sensed space.
    */
-  getDirectionOf(space) {
+  getDirectionOf(sensedSpace) {
+    const space = Space.fromSensedSpace(sensedSpace, this);
     return this.position.getRelativeDirectionOf(space);
   }
 
   /**
-   * Returns the distance between the given space and this unit.
+   * Returns the distance between the given sensed space and this unit.
    *
-   * @param {Space} space The space to calculate the distance of.
+   * @param {SensedSpace} sensedSpace The sensed space to calculate the distance
+   * of.
    *
-   * @returns {number} The distance of the space.
+   * @returns {number} The distance of the sensed space.
    */
-  getDistanceOf(space) {
+  getDistanceOf(sensedSpace) {
+    const space = Space.fromSensedSpace(sensedSpace, this);
     return this.position.getDistanceOf(space);
   }
 

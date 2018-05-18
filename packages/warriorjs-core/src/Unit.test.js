@@ -398,14 +398,24 @@ describe('Unit', () => {
   });
 
   test('returns the direction of a given space', () => {
-    expect(unit.getDirectionOf(floor.getSpaceAt([1, 1]))).toEqual(FORWARD);
-    expect(unit.getDirectionOf(floor.getSpaceAt([2, 2]))).toEqual(RIGHT);
-    expect(unit.getDirectionOf(floor.getSpaceAt([1, 3]))).toEqual(BACKWARD);
-    expect(unit.getDirectionOf(floor.getSpaceAt([0, 2]))).toEqual(LEFT);
+    expect(
+      unit.getDirectionOf(floor.getSpaceAt([1, 1]).toSensedSpace(unit)),
+    ).toEqual(FORWARD);
+    expect(
+      unit.getDirectionOf(floor.getSpaceAt([2, 2]).toSensedSpace(unit)),
+    ).toEqual(RIGHT);
+    expect(
+      unit.getDirectionOf(floor.getSpaceAt([1, 3]).toSensedSpace(unit)),
+    ).toEqual(BACKWARD);
+    expect(
+      unit.getDirectionOf(floor.getSpaceAt([0, 2]).toSensedSpace(unit)),
+    ).toEqual(LEFT);
   });
 
   test('returns the distance of a given space', () => {
-    expect(unit.getDistanceOf(floor.getSpaceAt([0, 0]))).toBe(3);
+    expect(
+      unit.getDistanceOf(floor.getSpaceAt([0, 0]).toSensedSpace(unit)),
+    ).toBe(3);
   });
 
   describe('when moving', () => {

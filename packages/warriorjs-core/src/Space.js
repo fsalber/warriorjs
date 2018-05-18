@@ -1,4 +1,8 @@
-import { getRelativeOffset } from '@warriorjs/geography';
+import {
+  getAbsoluteOffset,
+  getRelativeOffset,
+  translateLocation,
+} from '@warriorjs/geography';
 
 const upperLeftWallCharacter = '╔';
 const upperRightWallCharacter = '╗';
@@ -11,6 +15,21 @@ const stairsCharacter = '>';
 
 /** Class representing a space in the floor. */
 class Space {
+  /**
+   * Creates a space from a sensed space and the unit that sensed it.
+   *
+   * @param {SensedSpace} sensedSpace The sensed space.
+   * @param {Unit} sensingUnit The sensing unit.
+   *
+   * @returns {Space} The space.
+   */
+  static fromSensedSpace(sensedSpace, sensingUnit) {
+    const { floor, location, orientation } = sensingUnit.position;
+    const offset = getAbsoluteOffset(sensedSpace.getLocation(), orientation);
+    const spaceLocation = translateLocation(location, offset);
+    return new Space(floor, spaceLocation);
+  }
+
   /**
    * Creates a space.
    *
