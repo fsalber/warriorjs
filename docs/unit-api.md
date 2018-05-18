@@ -3,7 +3,7 @@ id: unit-api
 title: Unit API
 ---
 
-You can call methods on a unit to gather information about it.
+You can call methods on a unit you sensed to gather information about it.
 
 Here are the various methods that are available to you:
 
@@ -54,3 +54,11 @@ Determines if the unit is under the given effect.
 **Returns**
 
 _(boolean)_: Whether this unit is under the given effect or not.
+
+## `unit.getSpace()`:
+
+Returns the space where this unit was sensed.
+
+**Returns**
+
+_(Space)_: The space this unit was sensed at.
